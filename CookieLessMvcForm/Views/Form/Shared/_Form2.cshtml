@@ -1,0 +1,19 @@
+﻿@model CookieLessMvcForm.Models.FormModel
+
+@{
+    var step = this.ViewBag.Step;
+    var widget = this.ViewBag.Widget;
+}
+
+This is step @step in widget = @widget<br /><br />
+
+@using (Html.BeginForm("Step2Post", "Form", new { widget = widget }, FormMethod.Post))
+{
+    { Html.RenderAction("FormTechnicalData", new { sessionId = this.ViewBag.SessionId }, true); }
+
+    @Html.LabelFor(model => model.Email)
+    @Html.EditorFor(model => model.Email)
+
+    <button class="btn btn-link" onclick="window.location.href = '@Url.Action("GoBack", "Form", new {step = 1, sessionId = this.ViewBag.SessionId, widget = this.ViewBag.Widget })'" type="button">retour</button>
+    <button type="submit" class="btn btn-success">suivant</button>
+}

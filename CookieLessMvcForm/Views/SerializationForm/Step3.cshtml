@@ -1,0 +1,14 @@
+﻿@using Microsoft.Web.Mvc
+@model CookieLessMvcForm.Models.SerializationFormViewModel
+
+@using (Html.BeginForm("Step3", "SerializationForm", FormMethod.Post))
+{
+    <input type="hidden" name="sessionId" value="@this.ViewBag.SessionId" />
+    @Html.Serialize("Step1", Model.Step1)
+    @Html.Serialize("Step2", Model.Step2)
+    @Html.LabelFor(x => x.Step3.Tip)
+    @Html.EditorFor(x => x.Step3.Tip)
+
+    <button type="submit" name="previous" value="previous" class="btn btn-link">précédent</button>
+    <button type="submit" class="btn btn-success">suivant</button>
+}

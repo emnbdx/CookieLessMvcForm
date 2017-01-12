@@ -1,0 +1,16 @@
+﻿@using Microsoft.Web.Mvc
+@model CookieLessMvcForm.Models.SerializationFormViewModel
+
+@using (Html.BeginForm("Step1", "SerializationForm", FormMethod.Post))
+{
+    <input type="hidden" name="sessionId" value="@this.ViewBag.SessionId" />
+    if (Model != null)
+    {
+        @Html.Serialize("Step2", Model.Step2)
+        @Html.Serialize("Step3", Model.Step3)
+    }
+    @Html.LabelFor(x => x.Step1.Amount)
+    @Html.EditorFor(x => x.Step1.Amount)
+
+    <button type="submit" class="btn btn-success">suivant</button>
+}

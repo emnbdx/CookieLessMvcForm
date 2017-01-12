@@ -1,0 +1,30 @@
+﻿@model CookieLessMvcForm.Models.FormModel
+
+@{
+    var step = this.ViewBag.Step;
+    var widget = this.ViewBag.Widget;
+}
+
+This is step @step in widget = @widget<br /><br />
+
+@Html.LabelFor(model => model.Id)
+@Model.Id
+<br />
+@Html.LabelFor(model => model.Name)
+@Model.Name
+<br />
+@Html.LabelFor(model => model.Amount)
+@Model.Amount
+<br />
+@Html.LabelFor(model => model.Email)
+@Model.Email
+<br />
+@Html.LabelFor(model => model.Tip)
+@Model.Tip
+<br />
+<br/>
+CONGRATS !
+<br />
+@Html.ActionLink("Start again form mode", "Form")
+<br />
+@Html.ActionLink("Start again widget mode", "Widget")

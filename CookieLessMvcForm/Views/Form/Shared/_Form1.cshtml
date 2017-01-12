@@ -1,0 +1,18 @@
+﻿@model CookieLessMvcForm.Models.FormModel
+
+@{
+    var step = this.ViewBag.Step;
+    var widget = this.ViewBag.Widget;
+}
+
+This is step @step in widget = @widget<br /><br />
+
+@using (Html.BeginForm("Step1Post", "Form", new { widget = widget}, FormMethod.Post))
+{
+    { Html.RenderAction("FormTechnicalData", new { sessionId = this.ViewBag.SessionId }, true); }
+
+    @Html.LabelFor(model => model.Amount)
+    @Html.EditorFor(model => model.Amount)
+
+    <button type="submit" class="btn btn-success">suivant</button>
+}
